@@ -105,8 +105,7 @@ describe('Introduction to Mocha Tests - READ ME FIRST', function() {
     it("has a prefix of 53 and a length of 16", function() {
       expect(detectNetwork('5312345678901234')).to.equal('MasterCard');
     });
-   
-
+    
     // You can also use should instead of expect, which changes the style
     // slightly. It really doesn't matter which one you use - check out 
     // http://chaijs.com/guide/styles/ for more info, but it's important
@@ -114,16 +113,14 @@ describe('Introduction to Mocha Tests - READ ME FIRST', function() {
     // and should, but that's just for learning), so once you've gotten 
     // these tests to pass using should syntax, refactor your tests to 
     // use either expect or should, but not both. 
-    var should = chai.should();
     
     it('has a prefix of 54 and a length of 16', function() {
-      detectNetwork('5412345678901234').should.equal("MasterCard");
+      expect(detectNetwork('5412345678901234')).to.equal("MasterCard");
     });
    
     it('has a prefix of 55 and a length of 16', function() {
-      detectNetwork('5512345678901234').should.equal("MasterCard");
+      expect(detectNetwork('5512345678901234')).to.equal("MasterCard");
     })
-   
   });
 
   describe('Discover', function() {
