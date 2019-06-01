@@ -127,10 +127,15 @@ describe('Introduction to Mocha Tests - READ ME FIRST', function() {
   });
 
   describe('Discover', function() {
+    var assert = chai.assert;
     // Tests without a function will be marked as "pending" and not run
     // Implement these tests (and others) and make them pass!
-    it('has a prefix of 6011 and a length of 16');
-    it('has a prefix of 6011 and a length of 19');
+    it('has a prefix of 6011 and a length of 16', function(){
+      assert.equal(detectNetwork("6011098765432123"), "Discover");
+    });
+    it('has a prefix of 6011 and a length of 19', function(){
+      assert.equal(detectNetwork("6011098765432123456"), "Discover");
+    });
   });
 
   describe('Maestro', function() {
