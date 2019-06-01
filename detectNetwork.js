@@ -19,22 +19,35 @@ var detectNetwork = function(cardNumber) {
   var dinerPre = ["38", "39"];
   var ameriPre = ["34", "37"];
   var maePre = ["5018", "5020", "5038", "6304"];
-  if (cardNumber.slice(0, 1) === "4" && visaLen.includes(cardNumber.length)){
-  	return "Visa";
-  }else if((cardNumber.slice(0, 2) > 50 && cardNumber.slice(0, 2) < 56) && cardNumber.length === 16){
+  if((cardNumber.slice(0, 2) > 50 && cardNumber.slice(0, 2) < 56) && cardNumber.length === 16){
   	return "MasterCard";
-  }else if (dinerPre.includes(cardNumber.slice(0, 2)) && cardNumber.length === 14){
+  }
+  if (dinerPre.includes(cardNumber.slice(0, 2)) && cardNumber.length === 14){
   	return "Diner's Club";
-  }else if (ameriPre.includes(cardNumber.slice(0, 2)) && cardNumber.length === 15){
+  }
+  if (ameriPre.includes(cardNumber.slice(0, 2)) && cardNumber.length === 15){
   	return "American Express";
-  }else if ((cardNumber.slice(0, 4) === "6011" || cardNumber.slice(0, 2) === "65") && (cardNumber.length === 16 || cardNumber.length === 19)){
+  }
+  if ((cardNumber.slice(0, 4) === "6011" || cardNumber.slice(0, 2) === "65") && (cardNumber.length === 16 || cardNumber.length === 19)){
   	return "Discover";
-  }else if (cardNumber.slice(0, 3) > "643" && cardNumber.slice(0, 3) < "650" && (cardNumber.length === 16 || cardNumber.length === 19)){
+  }
+  if (cardNumber.slice(0, 3) > "643" && cardNumber.slice(0, 3) < "650" && (cardNumber.length === 16 || cardNumber.length === 19)){
     return "Discover";
-  }else if (maePre.includes(cardNumber.slice(0, 4)) && (cardNumber.length > 11 && cardNumber.length < 20)){
+  }
+  if (maePre.includes(cardNumber.slice(0, 4)) && (cardNumber.length > 11 && cardNumber.length < 20)){
     return "Maestro";
-  }else {
-    return "N/A";
+  }
+  if ((cardNumber.slice(0, 6) >= "622126" && cardNumber.slice(0, 6) <= "622925") &&(cardNumber.length > 15 && cardNumber.length < 20)){
+    return "China UnionPay";
+  }
+  if ((cardNumber.slice(0, 3) >= "624" && cardNumber.slice(0, 3) <= "626") &&(cardNumber.length > 15 && cardNumber.length < 20)){
+    return "China UnionPay";
+  }
+  if ((cardNumber.slice(0, 4) >= "6282" && cardNumber.slice(0, 4) <= "6288") &&(cardNumber.length > 15 && cardNumber.length < 20)){
+    return "China UnionPay";
+  }
+  if (cardNumber.slice(0, 1) === "4" && visaLen.includes(cardNumber.length)){
+    return "Visa";
   }
 };
 
