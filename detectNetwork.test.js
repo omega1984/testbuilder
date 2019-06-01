@@ -41,34 +41,22 @@ describe('Introduction to Mocha Tests - READ ME FIRST', function() {
 //     }
 //   });
   describe('Diner\'s Club', function() {
+    var assert = chai.assert;
     // Be careful, tests can have bugs too...
 
     it('has a prefix of 38 and a length of 14', function() {
-      throw new Error('Delete me!');
-   
-      if (detectNetwork('38345678901234') !== 'Diner\'s Club') {
-        throw new Error('Test failed');
-      }
+      assert(detectNetwork('38345678901234') === "Diner's Club");
     });
 
     it('has a prefix of 39 and a length of 14', function() {
-      if (detectNetwork('3934567890123') !== 'Diner\'s Club') {
-        throw new Error('Test failed');
-      }
-   
+      assert(detectNetwork('39345678901234') === "Diner's Club");
     });
   });
 
   describe('American Express', function() {
+    var assert = chai.assert;
     // It can get annoying to keep typing the if/throw, so here is a
-    // helper function to throw an error if the input statement isn't true. 
-    var assert = function(isTrue) {
-      if(isTrue) {
-        throw new Error('Test failed');
-      }
-   
-    };
-
+    // helper function to throw an error if the input statement isn't true.
     it('has a prefix of 34 and a length of 15', function() {
       assert(detectNetwork('343456789012345') === 'American Express');
     });
