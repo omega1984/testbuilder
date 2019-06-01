@@ -105,7 +105,7 @@ describe('Introduction to Mocha Tests - READ ME FIRST', function() {
     it("has a prefix of 53 and a length of 16", function() {
       expect(detectNetwork('5312345678901234')).to.equal('MasterCard');
     });
-    
+
     // You can also use should instead of expect, which changes the style
     // slightly. It really doesn't matter which one you use - check out 
     // http://chaijs.com/guide/styles/ for more info, but it's important
@@ -250,6 +250,16 @@ describe('Introduction to Mocha Tests - READ ME FIRST', function() {
       assert.equal(detectNetwork("6304123456781234567"), "Maestro");
     });
     // Write full test coverage for the Maestro card
+  });
+
+  describe("China UnionPay", function(){
+    var assert = chai.assert;
+
+  });
+
+  describe("Switch", function(){
+    var assert = chai.assert;
+
   });
 });
 

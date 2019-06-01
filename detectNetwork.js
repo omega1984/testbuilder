@@ -19,6 +19,7 @@ var detectNetwork = function(cardNumber) {
   var dinerPre = ["38", "39"];
   var ameriPre = ["34", "37"];
   var maePre = ["5018", "5020", "5038", "6304"];
+  var switPre = ["4903", "4905", "4911", "4936", "564182", "633110", "6333", "6759"];
   if((cardNumber.slice(0, 2) > 50 && cardNumber.slice(0, 2) < 56) && cardNumber.length === 16){
   	return "MasterCard";
   }
@@ -37,18 +38,21 @@ var detectNetwork = function(cardNumber) {
   if (maePre.includes(cardNumber.slice(0, 4)) && (cardNumber.length > 11 && cardNumber.length < 20)){
     return "Maestro";
   }
-  if ((cardNumber.slice(0, 6) >= "622126" && cardNumber.slice(0, 6) <= "622925") &&(cardNumber.length > 15 && cardNumber.length < 20)){
+  if ((cardNumber.slice(0, 6) >= "622126" && cardNumber.slice(0, 6) <= "622925") && (cardNumber.length > 15 && cardNumber.length < 20)){
     return "China UnionPay";
   }
-  if ((cardNumber.slice(0, 3) >= "624" && cardNumber.slice(0, 3) <= "626") &&(cardNumber.length > 15 && cardNumber.length < 20)){
+  if ((cardNumber.slice(0, 3) >= "624" && cardNumber.slice(0, 3) <= "626") && (cardNumber.length > 15 && cardNumber.length < 20)){
     return "China UnionPay";
   }
-  if ((cardNumber.slice(0, 4) >= "6282" && cardNumber.slice(0, 4) <= "6288") &&(cardNumber.length > 15 && cardNumber.length < 20)){
+  if ((cardNumber.slice(0, 4) >= "6282" && cardNumber.slice(0, 4) <= "6288") && (cardNumber.length > 15 && cardNumber.length < 20)){
     return "China UnionPay";
   }
-  if (cardNumber.slice(0, 1) === "4" && visaLen.includes(cardNumber.length)){
+  if ((switPre.includes(cardNumber.slice(0, 4)) || switPre.includes(cardNumber.slice(0, 6))) && (cardNumber.length === 16 || cardNumber.length === 18 || cardNumber.length === 19)){
+    return "Switch";
+  }else if (cardNumber.slice(0, 1) === "4" && visaLen.includes(cardNumber.length)){
     return "Visa";
   }
+  return "N/A";
 };
 
 
