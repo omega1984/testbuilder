@@ -142,42 +142,16 @@ describe('Introduction to Mocha Tests - READ ME FIRST', function() {
     it('has a prefix of 65 and a length of 19', function(){
       assert.equal(detectNetwork("6511098765432123456"), "Discover");
     });
-    it('has a prefix of 644 and a length of 16', function(){
-      assert.equal(detectNetwork("6441098765432123"), "Discover");
-    });
-    it('has a prefix of 644 and a length of 19', function(){
-      assert.equal(detectNetwork("6441098765432123456"), "Discover");
-    });
-    it('has a prefix of 645 and a length of 16', function(){
-      assert.equal(detectNetwork("6451098765432123"), "Discover");
-    });
-    it('has a prefix of 645 and a length of 19', function(){
-      assert.equal(detectNetwork("6451098765432123456"), "Discover");
-    });
-    it('has a prefix of 646 and a length of 16', function(){
-      assert.equal(detectNetwork("6461098765432123"), "Discover");
-    });
-    it('has a prefix of 646 and a length of 19', function(){
-      assert.equal(detectNetwork("6461098765432123456"), "Discover");
-    });
-    it('has a prefix of 647 and a length of 16', function(){
-      assert.equal(detectNetwork("6471098765432123"), "Discover");
-    });
-    it('has a prefix of 647 and a length of 19', function(){
-      assert.equal(detectNetwork("6471098765432123456"), "Discover");
-    });
-    it('has a prefix of 648 and a length of 16', function(){
-      assert.equal(detectNetwork("6481098765432123"), "Discover");
-    });
-    it('has a prefix of 648 and a length of 19', function(){
-      assert.equal(detectNetwork("6481098765432123456"), "Discover");
-    });
-    it('has a prefix of 649 and a length of 16', function(){
-      assert.equal(detectNetwork("6491098765432123"), "Discover");
-    });
-    it('has a prefix of 649 and a length of 19', function(){
-      assert.equal(detectNetwork("6491098765432123456"), "Discover");
-    });
+    for (var prefix = 644; prefix <= 649; prefix++){
+      (function(prefix){
+        it("has a prefix of " + prefix + " and a length of 16", function(){
+          assert.equal(detectNetwork(prefix + "1098765432123"), "Discover");
+        });
+        it("has a prefix of " + prefix + " and a length of 19", function(){
+          assert.equal(detectNetwork(prefix + "1098765432123456"), "Discover");
+        });
+      })(prefix);
+    }
   });
 
   describe('Maestro', function() {
