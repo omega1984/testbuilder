@@ -18,6 +18,7 @@ var detectNetwork = function(cardNumber) {
   var visaLen = [13, 16, 19];
   var dinerPre = ["38", "39"];
   var ameriPre = ["34", "37"];
+  var maePre = ["5018", "5020", "5038", "6304"];
   if (cardNumber.slice(0, 1) === "4" && visaLen.includes(cardNumber.length)){
   	return "Visa";
   }else if((cardNumber.slice(0, 2) > 50 && cardNumber.slice(0, 2) < 56) && cardNumber.length === 16){
@@ -26,8 +27,14 @@ var detectNetwork = function(cardNumber) {
   	return "Diner's Club";
   }else if (ameriPre.includes(cardNumber.slice(0, 2)) && cardNumber.length === 15){
   	return "American Express"
-  }else{
-  	return "N/A";
+  }else if ((cardNumber.slice(0, 4) === "6011" || cardNumber.slice(0, 2) === "65") && (cardNumber.length === 16 || cardNumber.length === 19)){
+  	return "Discover";
+  }else if (cardNumber.slice(0, 3) > "643" && cardNumber.slice(0, 3) < "650" && (cardNumber.length === 16 || cardNumber.length === 19)){
+    return "Discover";
+  }else if (maePre.includes(cardNumber.slice(0, 4)) && (cardNumber.length > 12 && cardNumber.length < 19)){
+    return "Maestro";
+  }else {
+    return "N/A";
   }
 };
 
