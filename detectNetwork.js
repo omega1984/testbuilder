@@ -26,12 +26,12 @@ var detectNetwork = function(cardNumber) {
   }else if (dinerPre.includes(cardNumber.slice(0, 2)) && cardNumber.length === 14){
   	return "Diner's Club";
   }else if (ameriPre.includes(cardNumber.slice(0, 2)) && cardNumber.length === 15){
-  	return "American Express"
+  	return "American Express";
   }else if ((cardNumber.slice(0, 4) === "6011" || cardNumber.slice(0, 2) === "65") && (cardNumber.length === 16 || cardNumber.length === 19)){
   	return "Discover";
   }else if (cardNumber.slice(0, 3) > "643" && cardNumber.slice(0, 3) < "650" && (cardNumber.length === 16 || cardNumber.length === 19)){
     return "Discover";
-  }else if (maePre.includes(cardNumber.slice(0, 4)) && (cardNumber.length > 12 && cardNumber.length < 19)){
+  }else if (maePre.includes(cardNumber.slice(0, 4)) && (cardNumber.length > 11 && cardNumber.length < 20)){
     return "Maestro";
   }else {
     return "N/A";
