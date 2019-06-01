@@ -246,37 +246,37 @@ describe('Introduction to Mocha Tests - READ ME FIRST', function() {
       assert.equal(detectNetwork("50181234567812345"), "Maestro");
     });
     it("has a prefix of 5020 and a length of 17", function(){
-      assert.equal(detectNetwork("50181234567812345"), "Maestro");
+      assert.equal(detectNetwork("50201234567812345"), "Maestro");
     });
     it("has a prefix of 5038 and a length of 17", function(){
-      assert.equal(detectNetwork("50181234567812345"), "Maestro");
+      assert.equal(detectNetwork("50381234567812345"), "Maestro");
     });
     it("has a prefix of 6304 and a length of 17", function(){
-      assert.equal(detectNetwork("50181234567812345"), "Maestro");
+      assert.equal(detectNetwork("63041234567812345"), "Maestro");
     });
     it("has a prefix of 5018 and a length of 18", function(){
       assert.equal(detectNetwork("501812345678123456"), "Maestro");
     });
     it("has a prefix of 5020 and a length of 18", function(){
-      assert.equal(detectNetwork("501812345678123456"), "Maestro");
+      assert.equal(detectNetwork("502012345678123456"), "Maestro");
     });
     it("has a prefix of 5038 and a length of 18", function(){
-      assert.equal(detectNetwork("501812345678123456"), "Maestro");
+      assert.equal(detectNetwork("503812345678123456"), "Maestro");
     });
     it("has a prefix of 6304 and a length of 18", function(){
-      assert.equal(detectNetwork("501812345678123456"), "Maestro");
+      assert.equal(detectNetwork("630412345678123456"), "Maestro");
     });
     it("has a prefix of 5018 and a length of 19", function(){
       assert.equal(detectNetwork("5018123456781234567"), "Maestro");
     });
     it("has a prefix of 5020 and a length of 19", function(){
-      assert.equal(detectNetwork("5018123456781234567"), "Maestro");
+      assert.equal(detectNetwork("5020123456781234567"), "Maestro");
     });
     it("has a prefix of 5038 and a length of 19", function(){
-      assert.equal(detectNetwork("5018123456781234567"), "Maestro");
+      assert.equal(detectNetwork("5038123456781234567"), "Maestro");
     });
     it("has a prefix of 6304 and a length of 19", function(){
-      assert.equal(detectNetwork("5018123456781234567"), "Maestro");
+      assert.equal(detectNetwork("6304123456781234567"), "Maestro");
     });
     // Write full test coverage for the Maestro card
   });
